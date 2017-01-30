@@ -17,6 +17,9 @@ Installs the mattermost archive, and starts the associated mattermost service.
 
 Uninstalls the mattermost archive, and removes the associated mattermost service.
 
+## Change the configuration using mattermost
+
+Run `python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)' < /opt/mattermost/config/config.json` on your server to get pillar contents, after configuring within mattermost.
 
 ## webserver and database
 

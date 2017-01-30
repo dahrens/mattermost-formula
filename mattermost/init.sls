@@ -44,7 +44,7 @@ config_file:
     - name: {{ config['install_dir'] }}/config/config.json
     - user: {{ config['run_user'] }}
     - group: {{ config['run_user'] }}
-    - dataset_pillar: mattermnost:config
+    - dataset_pillar: mattermost:config
     - formatter: json
     - mode: 755
     - require:
