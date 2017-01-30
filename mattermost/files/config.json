@@ -5,7 +5,7 @@
 {
     "ServiceSettings": {
         "SiteURL": "",
-        "ListenAddress": ":{{ server['http_port'] }}",
+        "ListenAddress": "{{ server['listenAddress'] }}",
         "MaximumLoginAttempts": 10,
         "SegmentDeveloperKey": "",
         "GoogleDeveloperKey": "",
