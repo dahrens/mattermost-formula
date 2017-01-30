@@ -16,7 +16,7 @@ mattermost:
     port: 5432
   server:
     domain: 'mattermost.example.com'
-    http_port: 8065
+    listenAddress: 127.0.0.1:8065
   nginx:
     ssl_cert: '/etc/pki/tls/certs/localhost.crt'
     ssl_key: '/etc/pki/tls/certs/localhost.key'
