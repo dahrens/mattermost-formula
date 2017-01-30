@@ -1,0 +1,11 @@
+file_client: local
+
+gitfs_provider: gitpython
+
+fileserver_backend:
+  - roots
+  - git
+
+# Use this if you wanne use gitfs formulas!
+gitfs_remotes:
+  - https://github.com/saltstack-formulas/postgres-formula.git

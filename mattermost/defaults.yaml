@@ -1,22 +1,243 @@
 mattermost:
+  version: '3.4.0'
+  extract_archive_dir: '/opt'
+  hash_type: 'md5'
+  hash: 'efbb80aa22e97f1916ab5d795c1cf10c'
+  run_user: 'mattermost'
+  install_dir: '/opt/mattermost'
+  data_dir: '/opt/mattermost/data'
+  log_dir: '/var/log/mattermost'
   config:
-    version: '3.4.0'
-    extract_archive_dir: '/opt'
-    hash_type: 'md5'
-    hash: 'efbb80aa22e97f1916ab5d795c1cf10c'
-    run_user: 'mattermost'
-    install_dir: '/opt/mattermost'
-    data_dir: '/opt/mattermost/data'
-    log_dir: '/var/log/mattermost'
-    site_name: 'Mattermost'
-  postgresql:
-    database: 'mattermost'
-    user: 'mmuser'
-    password: 'mmuser_password'
-    port: 5432
-  server:
-    domain: 'mattermost.example.com'
-    http_port: 8065
-  nginx:
-    ssl_cert: '/etc/pki/tls/certs/localhost.crt'
-    ssl_key: '/etc/pki/tls/certs/localhost.key'
+    AnalyticsSettings:
+      MaxUsersForStatistics: 2500
+    ClusterSettings:
+      Enable: false
+      InterNodeListenAddress: :8075
+      InterNodeUrls: []
+    ComplianceSettings:
+      Directory: ./data/
+      Enable: false
+      EnableDaily: false
+    EmailSettings:
+      ConnectionSecurity: ''
+      EmailBatchingBufferSize: 256
+      EmailBatchingInterval: 30
+      EnableEmailBatching: false
+      EnableSignInWithEmail: true
+      EnableSignInWithUsername: true
+      EnableSignUpWithEmail: true
+      FeedbackEmail: ''
+      FeedbackName: ''
+      FeedbackOrganization: ''
+      InviteSalt: changeme
+      PasswordResetSalt: changeme
+      PushNotificationContents: generic
+      PushNotificationServer: ''
+      RequireEmailVerification: false
+      SMTPPassword: ''
+      SMTPPort: ''
+      SMTPServer: ''
+      SMTPUsername: ''
+      SendEmailNotifications: false
+      SendPushNotifications: false
+    FileSettings:
+      AmazonS3AccessKeyId: ''
+      AmazonS3Bucket: ''
+      AmazonS3Endpoint: s3.amazonaws.com
+      AmazonS3Region: us-east-1
+      AmazonS3SSL: true
+      AmazonS3SecretAccessKey: ''
+      Directory: ./data/
+      DriverName: local
+      EnablePublicLink: false
+      InitialFont: luximbi.ttf
+      MaxFileSize: 52428800
+      PreviewHeight: 0
+      PreviewWidth: 1024
+      ProfileHeight: 128
+      ProfileWidth: 128
+      PublicLinkSalt: changeme
+      ThumbnailHeight: 100
+      ThumbnailWidth: 120
+    GitLabSettings:
+      AuthEndpoint: ''
+      Enable: false
+      Id: ''
+      Scope: ''
+      Secret: ''
+      TokenEndpoint: ''
+      UserApiEndpoint: ''
+    GoogleSettings:
+      AuthEndpoint: https://accounts.google.com/o/oauth2/v2/auth
+      Enable: false
+      Id: ''
+      Scope: profile email
+      Secret: ''
+      TokenEndpoint: https://www.googleapis.com/oauth2/v4/token
+      UserApiEndpoint: https://www.googleapis.com/plus/v1/people/me
+    LdapSettings:
+      BaseDN: ''
+      BindPassword: ''
+      BindUsername: ''
+      ConnectionSecurity: ''
+      EmailAttribute: ''
+      Enable: false
+      FirstNameAttribute: ''
+      IdAttribute: ''
+      LastNameAttribute: ''
+      LdapPort: 389
+      LdapServer: ''
+      LoginFieldName: ''
+      MaxPageSize: 0
+      NicknameAttribute: ''
+      PositionAttribute: ''
+      QueryTimeout: 60
+      SkipCertificateVerification: false
+      SyncIntervalMinutes: 60
+      UserFilter: ''
+      UsernameAttribute: ''
+    LocalizationSettings:
+      AvailableLocales: ''
+      DefaultClientLocale: en
+      DefaultServerLocale: en
+    LogSettings:
+      ConsoleLevel: DEBUG
+      EnableConsole: true
+      EnableDiagnostics: true
+      EnableFile: true
+      EnableWebhookDebugging: true
+      FileFormat: ''
+      FileLevel: INFO
+      FileLocation: /var/log/mattermost/mattermost.log
+    MetricsSettings:
+      BlockProfileRate: 0
+      Enable: false
+      ListenAddress: :8067
+    NativeAppSettings:
+      AndroidAppDownloadLink: https://about.mattermost.com/mattermost-android-app/
+      AppDownloadLink: https://about.mattermost.com/downloads/
+      IosAppDownloadLink: https://about.mattermost.com/mattermost-ios-app/
+    Office365Settings:
+      AuthEndpoint: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+      Enable: false
+      Id: ''
+      Scope: User.Read
+      Secret: ''
+      TokenEndpoint: https://login.microsoftonline.com/common/oauth2/v2.0/token
+      UserApiEndpoint: https://graph.microsoft.com/v1.0/me
+    PasswordSettings:
+      Lowercase: false
+      MinimumLength: 5
+      Number: false
+      Symbol: false
+      Uppercase: false
+    PrivacySettings:
+      ShowEmailAddress: false
+      ShowFullName: true
+    RateLimitSettings:
+      Enable: false
+      MaxBurst: 100
+      MemoryStoreSize: 10000
+      PerSec: 10
+      VaryByHeader: ''
+      VaryByRemoteAddr: true
+    SamlSettings:
+      AssertionConsumerServiceURL: ''
+      EmailAttribute: ''
+      Enable: false
+      Encrypt: false
+      FirstNameAttribute: ''
+      IdpCertificateFile: ''
+      IdpDescriptorUrl: ''
+      IdpUrl: ''
+      LastNameAttribute: ''
+      LocaleAttribute: ''
+      LoginButtonText: With SAML
+      NicknameAttribute: ''
+      PositionAttribute: ''
+      PrivateKeyFile: ''
+      PublicCertificateFile: ''
+      UsernameAttribute: ''
+      Verify: false
+    ServiceSettings:
+      AllowCorsFrom: ''
+      ConnectionSecurity: ''
+      EnableCommands: true
+      EnableCustomEmoji: false
+      EnableDeveloper: false
+      EnableIncomingWebhooks: true
+      EnableInsecureOutgoingConnections: false
+      EnableMultifactorAuthentication: false
+      EnableOAuthServiceProvider: false
+      EnableOnlyAdminIntegrations: true
+      EnableOutgoingWebhooks: true
+      EnablePostIconOverride: false
+      EnablePostUsernameOverride: false
+      EnableSecurityFixAlert: true
+      EnableTesting: false
+      EnforceMultifactorAuthentication: false
+      Forward80To443: false
+      GoogleDeveloperKey: ''
+      LetsEncryptCertificateCacheFile: ./config/letsencrypt.cache
+      ListenAddress: 127.0.0.1:8065
+      MaximumLoginAttempts: 10
+      ReadTimeout: 300
+      RestrictCustomEmojiCreation: all
+      SegmentDeveloperKey: ''
+      SessionCacheInMinutes: 10
+      SessionLengthMobileInDays: 30
+      SessionLengthSSOInDays: 30
+      SessionLengthWebInDays: 30
+      SiteURL: ''
+      TLSCertFile: ''
+      TLSKeyFile: ''
+      UseLetsEncrypt: false
+      WebserverMode: gzip
+      WebsocketPort: 80
+      WebsocketSecurePort: 443
+      WriteTimeout: 300
+    SqlSettings:
+      AtRestEncryptKey: changeme
+      DataSource: postgres://db_user:secret@localhost:5432/mattermost?sslmode=disable&connect_timeout=10
+      DataSourceReplicas: []
+      DriverName: postgres
+      MaxIdleConns: 10
+      MaxOpenConns: 10
+      Trace: false
+    SupportSettings:
+      AboutLink: https://about.mattermost.com/default-about/
+      HelpLink: https://about.mattermost.com/default-help/
+      PrivacyPolicyLink: https://about.mattermost.com/default-privacy-policy/
+      ReportAProblemLink: https://about.mattermost.com/default-report-a-problem/
+      SupportEmail: feedback@mattermost.com
+      TermsOfServiceLink: https://about.mattermost.com/default-terms/
+    TeamSettings:
+      CustomBrandText: ''
+      CustomDescriptionText: ''
+      EnableCustomBrand: false
+      EnableOpenServer: false
+      EnableTeamCreation: true
+      EnableUserCreation: true
+      MaxChannelsPerTeam: 2000
+      MaxNotificationsPerChannel: 1000000
+      MaxUsersPerTeam: 50
+      RestrictCreationToDomains: ''
+      RestrictDirectMessage: any
+      RestrictPrivateChannelCreation: all
+      RestrictPrivateChannelDeletion: all
+      RestrictPrivateChannelManagement: all
+      RestrictPublicChannelCreation: all
+      RestrictPublicChannelDeletion: all
+      RestrictPublicChannelManagement: all
+      RestrictTeamInvite: all
+      SiteName: Mattermost
+      UserStatusAwayTimeout: 300
+    WebrtcSettings:
+      Enable: false
+      GatewayAdminSecret: ''
+      GatewayAdminUrl: ''
+      GatewayWebsocketUrl: ''
+      StunURI: ''
+      TurnSharedKey: ''
+      TurnURI: ''
+      TurnUsername: ''

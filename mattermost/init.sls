@@ -1,5 +1,5 @@
 {% from "mattermost/map.jinja" import mattermost with context %}
-{% set config = mattermost.config %}
+{% set config = mattermost %}
 
 mattermost_archive:
   archive.extracted:
@@ -40,13 +40,13 @@ log_dir:
       - user: mattermost
 
 config_file:
-  file.managed:
+  file.serialize:
     - name: {{ config['install_dir'] }}/config/config.json
-    - source: salt://mattermost/files/config.json
     - user: {{ config['run_user'] }}
     - group: {{ config['run_user'] }}
+    - dataset_pillar: mattermnost:config
+    - formatter: json
     - mode: 755
-    - template: jinja
     - require:
       - user: mattermost
 
